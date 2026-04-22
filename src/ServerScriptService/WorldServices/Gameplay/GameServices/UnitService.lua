@@ -23,9 +23,11 @@ local Types = require(ReplicatedStorage.Shared.Utility.Types)
 
 local MatchFolder;
 local ProfileService;
+local MobService;
 
 local UnitService = Knit.CreateService {
 	Name = "UnitService",
+	Units = {},
 	Client = {
 		TargetChanged = Knit.CreateSignal(),
 		AttackVFX = Knit.CreateSignal(),
@@ -363,7 +365,117 @@ function UnitService.Client:RequestDamage(Owner, Npc)
 	-- warn(` Has { Npc.Name } done damage to another Npc?`, UnitInfo, UnitHitboxInfo)
 end
 
-function UnitService:Place(UnitName,Frame,Owner)
+function UnitService.PlaceUsingSpawner(Team : string, UnitName : string, Frame : CFrame)
+	local Params = RaycastParams.new()
+	Params.FilterType = Enum.RaycastFilterType.Include
+	Params.FilterDescendantsInstances = { workspace.Map.Buildings.Maps}
+
+	local UnitPlaced = false
+	-- local UnitInfo = UnitInformation.Cold.
+	local Pack = {
+		Model = game.ReplicatedStorage.Units:FindFirstChild(UnitName):Clone();
+		Location = Frame;
+		Owner = nil;
+		TimePlace = workspace:GetServerTimeNow();
+		Info = {}; -- stats of unit and stuff for server if needed
+	};
+	
+	local function DisableCollsion(Model)
+		for _,Parts : BasePart in pairs(Model:GetChildren()) do
+			if Parts:IsA("BasePart") then
+				Parts.CanCollide = false
+			end
+		end
+	end
+		
+	local function GetUnitByName(UnitsData, UnitName : string)
+		UnitsData = UnitsData or {}
+
+		for pos,UnitData in UnitsData do
+			if UnitData.Unit == UnitName then
+				return UnitData,pos
+			end
+		end
+
+		return nil
+	end
+	
+	local MyUnitInfo = { -- We'll get the info from UnitDatastore
+		Unit = UnitName,
+		Level = 1;
+		UnitType = "Hybrid",
+		Traits = {
+			Name = "", 
+			Level = 0,
+		},
+		Stats = {Damage = "S", Cooldown = "F", Range = "C"};
+	}
+	
+	if MyUnitInfo then
+		local newUnit = Pack.Model
+		local Unit_Class = UnitClasses:FindFirstChild(Units[UnitName].Name)
+
+		if Unit_Class then -- and Cash and Cash.Value >= Units[UnitName].Price
+
+			newUnit.Parent = workspace.GameAssets.Units
+			newUnit.HumanoidRootPart.Anchored = false
+			newUnit:PivotTo(Frame);
+
+			local Unit = require(Unit_Class).Setup(newUnit, MyUnitInfo)	-- Load Class
+			Unit.Heart = Room.End
+			Unit.Traits = MyUnitInfo.Traits
+			Unit.Owner = Players:GetChildren()[1]
+			Unit.Team = Team
+			Unit.Room = Room
+
+			local UpgradeVFX = Assets.VFX.Units.Upgrade:Clone()
+			UpgradeVFX.CFrame = newUnit.PrimaryPart.CFrame
+			UpgradeVFX.Anchored = true
+			UpgradeVFX.CanCollide = false
+			UpgradeVFX.Parent = newUnit
+			
+			newUnit.Humanoid.MaxHealth = Unit.Health
+			newUnit.Humanoid.Health = Unit.Health
+
+			newUnit:SetAttribute("Team", Unit.Team)
+			newUnit:SetAttribute("IsActive", true)
+			newUnit:SetAttribute("Id",math.random(-1000,1000))
+			-- newUnit:SetAttribute("Owner",Owner.Name)
+			newUnit:SetAttribute("TotalDamage", 0)
+
+			Validations[newUnit:GetAttribute("Id")] = {Owner = Team}
+			UnitService.Units[newUnit:GetAttribute("Id")] = Unit
+
+			task.delay(.5,function()
+				if Unit.UltimateInfo then
+					-- UnitService.Client.VisualizeUltimate:Fire(Owner, newUnit, Unit.UltimateInfo.RequiredToActivate)
+				end
+			end)
+			
+			MobService.Client.TrackHealth:FireAll(newUnit)
+			UnitService.AddUnit(Unit)
+			DisableCollsion(newUnit)
+
+			task.spawn(function()
+				Unit:Run()
+			end)	
+
+			UnitPlaced = true
+		elseif not Unit_Class then
+			warn("[ CLASS ] - CLASS WAS NOT FOUND...", Units[UnitName].Name)
+		else
+			warn("[ LACK FUND ] - TO BUY ", UnitName)
+		end	
+		
+		
+		Network:FireAllClients("PlaceUnit",UnitName,Pack.Model)
+		-- setmetatable(ServerBuildManager,Pack)
+	end
+
+	return UnitPlaced
+end
+
+function UnitService:Place(UnitName, Frame, Owner : player)
 	local Params = RaycastParams.new()
 	Params.FilterType = Enum.RaycastFilterType.Include
 	Params.FilterDescendantsInstances = { workspace.Map.Buildings.Maps}
@@ -438,6 +550,7 @@ function UnitService:Place(UnitName,Frame,Owner)
 			newUnit.Humanoid.MaxHealth = Unit.Health
 			newUnit.Humanoid.Health = Unit.Health
 
+			newUnit:SetAttribute("Team", Unit.Team)
 			newUnit:SetAttribute("IsActive", true)
 			newUnit:SetAttribute("Id",math.random(-1000,1000))
 			newUnit:SetAttribute("Owner",Owner.Name)
@@ -545,6 +658,8 @@ function UnitService.UpdateUnits()
 end
 
 function UnitService:KnitInit()
+	MobService = Knit.GetService("MobService")
+	RemoteManager:Listen("SpawnNpc", UnitService.PlaceUsingSpawner)
 	RunService.Stepped:Connect(UnitService.UpdateUnits)
 end
 

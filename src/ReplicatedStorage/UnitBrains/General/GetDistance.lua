@@ -10,7 +10,6 @@ function brain.run(self : Types.UnitManagerObject, deltatime)
 	-- warn("Here is the distance", Distance)
 	if Distance <= 5 then
 		self:HandleAnimation("Stop", "WalkAnim")
-		-- warn("Animation should stop now")
 		return SUCCESS
 	end
 

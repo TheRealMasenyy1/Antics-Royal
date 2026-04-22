@@ -48,6 +48,7 @@ export type TargetData = {
 	Id: number,
 	Character: Model,
 	Health: number,
+	Team: string,
 	MaxHealth: number?,
 }
 

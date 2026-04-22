@@ -80,7 +80,7 @@ function EntityController.PlayAnimation(Character : Model, AnimationName : strin
 				end)
 			end
 			
-			table.insert(CurrentlyPlaying, newAnimation)
+			-- table.insert(CurrentlyPlaying, newAnimation)
 			
 			if not newAnimation.Looped then
 				newAnimation.Ended:Connect(function()
@@ -243,9 +243,9 @@ end
 function EntityController.KeepTrackOfHealth(Mob : Model)
     local maid = Maid.new()
     local MobStatusUI = Assets.MobStatusUI:Clone()
-	-- local Humanoid = Mob.Humanoid
-    local health = Mob:GetAttribute("Health")
-    local MaxHealth = Mob:GetAttribute("MaxHealth")
+	local Humanoid : Humanoid = Mob.Humanoid
+    local health = Humanoid.Health
+    local MaxHealth = Humanoid.MaxHealth
     local Shield = Mob:GetAttribute("Shield")
     local DamagePart = ReplicatedStorage.Assets.DamagePart
 
@@ -311,31 +311,13 @@ function EntityController.KeepTrackOfHealth(Mob : Model)
 
     local Count = 0
 
-    maid:GiveTask(Mob.AttributeChanged:Connect(function(AttributeName)
-        local newHealth = Mob:GetAttribute("Health")
-        local Maxhealth = Mob:GetAttribute("MaxHealth")
-        local newShield = Mob:GetAttribute("Shield")
-        local CriticalHit = Mob:GetAttribute("CriticalHit")
+    maid:GiveTask(Humanoid.HealthChanged:Connect(function(AttributeName)
+        local newHealth = Humanoid.Health
+        local Maxhealth = Humanoid.MaxHealth
         local Regen = Mob:GetAttribute("Regen")
-
-        if AttributeName == "Shield" and Shield > newShield then
-            local ShieldDamage = Shield - newShield
-            MobStatusUI.Frame.Shield.Amount.Text = newShield .."/".. Shield
-            IndicateDamage(ShieldDamage, CriticalHit, true)
-
-            TweenService:Create(MobStatusUI.Frame.Shield.bar,TweenInfo.new(.5),{Size = UDim2.new((newShield / Shield) - 0.03, 0 , 0.75,0)}):Play()
-
-            if newShield <= 0 then
-                MobStatusUI.Frame.Shield.Visible = false
-            end
-
-            Shield = newShield
-        end
-
         local isHealth = if AttributeName == "Health" then true else false
         
-        if AttributeName == "Health" and (health > newHealth) or Regen then
-            --print("HEALTH BAR CHANGED")
+        if (health > newHealth) or Regen then
             local Damage = health - newHealth
             local showDamageIndicator = if health > newHealth then true else false
 
@@ -350,8 +332,28 @@ function EntityController.KeepTrackOfHealth(Mob : Model)
             TweenService:Create(MobStatusUI.Frame.Health.bar,TweenInfo.new(.5),{Size = UDim2.new((health / Maxhealth) - 0.03, 0 , 0.75,0)}):Play()
             
             if health <= 0 then
+				maid:Destroy()
                 MobStatusUI:Destroy()
             end
+        end
+	end))
+
+    maid:GiveTask(Mob.AttributeChanged:Connect(function(AttributeName)
+        local newShield = Mob:GetAttribute("Shield")
+        local CriticalHit = Mob:GetAttribute("CriticalHit")
+
+        if AttributeName == "Shield" and Shield > newShield then
+            local ShieldDamage = Shield - newShield
+            MobStatusUI.Frame.Shield.Amount.Text = newShield .."/".. Shield
+            IndicateDamage(ShieldDamage, CriticalHit, true)
+
+            TweenService:Create(MobStatusUI.Frame.Shield.bar,TweenInfo.new(.5),{Size = UDim2.new((newShield / Shield) - 0.03, 0 , 0.75,0)}):Play()
+
+            if newShield <= 0 then
+                MobStatusUI.Frame.Shield.Visible = false
+            end
+
+            Shield = newShield
         end
     end))
 end

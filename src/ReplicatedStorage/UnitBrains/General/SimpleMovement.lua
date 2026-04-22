@@ -8,7 +8,7 @@ function brain.run(self : Types.UnitManagerObject, deltatime)
 	local Humanoid : Humanoid = self.Unit.Humanoid
 
 	if self.Target ~= nil then
-		print("Trying to call walkAnimation")
+		-- print("Trying to call walkAnimation")
 		self:HandleAnimation("Play", "WalkAnim")
 		Humanoid:MoveTo(self.Target:GetPivot().Position)
 		return SUCCESS

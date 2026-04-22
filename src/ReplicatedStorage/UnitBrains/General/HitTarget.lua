@@ -10,11 +10,10 @@ function brain.run(self : Types.UnitManagerObject, deltatime)
 	-- warn("Here is the distance", Distance)
 	if not self.InCooldown then
 		self:Attack(self.Target)
-		-- warn("We're Attacking the enemy", Distance)
 		return SUCCESS
 	end
 	
-	warn("Currenlty in cooldown")
+	-- warn("Currenlty in cooldown")
 	return FAILED
 end
 

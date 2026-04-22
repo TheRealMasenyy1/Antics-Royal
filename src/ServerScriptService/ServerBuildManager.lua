@@ -34,7 +34,7 @@ function ServerBuildManager:PlaceUnit(Unit,Frame,Owner)
 	};
 	
 	
-	Pack.Model.Parent = workspace.GameAssets.Units
+	Pack.Model.Parent = workspace.Gameplay.Mobs
 	Pack.Model:PivotTo(Frame);
 	
 	setmetatable(ServerBuildManager,Pack)

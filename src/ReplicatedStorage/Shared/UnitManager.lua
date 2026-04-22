@@ -553,16 +553,16 @@ function UnitManager:Upgrade(player: Player): (boolean, UnitManagerObject)
 end
 
 function UnitManager:GetTargets(RootPart: BasePart): ()
-	local AllAttackable: { Model } = Gameplay.Mobs:GetChildren()
-	-- print("Attackable ->", AllAttackable)
+	local AllAttackable: { Model } = workspace.GameAssets.Units:GetChildren()
 	for _, Enemies: Model in pairs(AllAttackable) do
 		local HumanoidRootPart: BasePart? = Enemies:FindFirstChild("HumanoidRootPart")
 
 		if HumanoidRootPart then
 			local Distance: number  = (HumanoidRootPart.Position - RootPart.Position).Magnitude
 			local Enemy : Model  = HumanoidRootPart.Parent :: Model
+			local EnemyTeam = Enemy:GetAttribute("Team")
 
-			if Distance <= 100 then -- self.Range
+			if Enemy ~= self.Unit and Distance <= 100 and self.Team ~= EnemyTeam then -- self.Range
 				if Enemy and Enemy:GetAttribute("IsActive") then
 					if self.Type ~= "Hybrid" and self.Type ~= Enemy:GetAttribute("MobType") then return end
 
