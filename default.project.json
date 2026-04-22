@@ -1,0 +1,39 @@
+{
+	"name": "Antics-Royal",
+	"tree": {
+		"$className": "DataModel",
+
+		"LocalizationService": {
+			"$path": "src/LocalizationService"
+		},
+		"ReplicatedFirst": {
+			"$path": "src/ReplicatedFirst"
+			"$ignoreUnknownInstances": true,
+		},
+		"ReplicatedStorage": {
+			"$path": "src/ReplicatedStorage",
+			"$ignoreUnknownInstances": true,
+			"Packages": {
+				"$path": "Packages"
+			}
+		},
+		"ServerScriptService": {
+			"$path": "src/ServerScriptService"
+			"$ignoreUnknownInstances": true,
+		},
+		"ServerStorage": {
+			"$path": "src/ServerStorage"
+			"$ignoreUnknownInstances": true,
+		},
+		"StarterPlayer": {
+			"$ignoreUnknownInstances": true,
+			"StarterCharacterScripts": {
+				"$path": "src/StarterPlayer/StarterCharacterScripts"
+			},
+			"StarterPlayerScripts": {
+				"$path": "src/StarterPlayer/StarterPlayerScripts"
+			}
+		}
+	}
+}
+

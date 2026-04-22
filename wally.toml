@@ -1,0 +1,22 @@
+[package]
+name = "core/antics-royal"
+version = "0.1.0"
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+
+[dependencies]
+ezvisualz = "arxkdev/ezvisualz@0.0.6"
+Loader = "sleitnick/loader@2.0.0"
+Promise = "evaera/promise@4.0.0"
+Signal = "sleitnick/signal@2.0.3"
+TableUtil = "sleitnick/table-util@1.2.1"
+Cmdr = "evaera/cmdr@1.12.0"
+Knit = "sleitnick/knit@^1.7"
+fusion = "elttob/fusion@0.3.0"
+profilestore = "vyon/profilestore@1.0.3"
+TypedRemote = "sleitnick/typed-remote@0.2.1"
+logger = "alexinite/logger@0.1.1"
+import = "vocksel/import@2.1.0"
+Maid = "devsparkle/maid@2.1.0"
+Zoneplus = "mattschrubb/zoneplus@3.2.0"
+Trove = "sleitnick/trove@1.8.0"

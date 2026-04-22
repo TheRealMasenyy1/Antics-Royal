@@ -1,0 +1,87 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/core/projects/Antics-Royal/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	//
+Bartokens	src/ReplicatedStorage/Shared/Utility/VoxBreaker/init.lua	/^--@Bartokens on discord and  @bartoken on tiktok$/;"	t
+alias	src/ReplicatedStorage/Shared/Utility/maid.lua	/^-- @alias Destroy$/;"	t
+alias	src/ReplicatedStorage/Shared/Zone/Maid.lua	/^-- @alias Destroy$/;"	t
+author	Packages/_Index/mattschrubb_zoneplus@3.2.0/zoneplus/Janitor.lua	/^-- @author Corecii$/;"	t
+author	src/ReplicatedStorage/Shared/Icon/Packages/Janitor.lua	/^-- @author Corecii$/;"	t
+author	src/ReplicatedStorage/Shared/ULID.lua	/^-- @author Thijs Schreijer$/;"	t
+classmod	src/ReplicatedStorage/Shared/Utility/maid.lua	/^-- @classmod Maid$/;"	t
+classmod	src/ReplicatedStorage/Shared/Zone/Maid.lua	/^-- @classmod Maid$/;"	t
+constructor	src/ReplicatedStorage/Shared/Utility/maid.lua	/^-- @constructor Maid.new()$/;"	t
+constructor	src/ReplicatedStorage/Shared/Zone/Maid.lua	/^-- @constructor Maid.new()$/;"	t
+copyright	src/ReplicatedStorage/Shared/ULID.lua	/^-- @copyright Copyright 2016-2017 Thijs Schreijer$/;"	t
+desc	src/StarterPlayer/StarterPlayerScripts/ClientServices/Gameplay/MatchControllers/MatchClientController/PlayerController/Input.lua	/^--@desc Retrieves information about the mouse, including hit point and target.$/;"	t
+desc	src/StarterPlayer/StarterPlayerScripts/ClientServices/Gameplay/MatchControllers/MatchClientController/PlayerController/Input.lua	/^--@desc Waits for a specified key press state and returns the mouse hit point.$/;"	t
+desc	src/StarterPlayer/StarterPlayerScripts/ClientServices/Gameplay/MatchControllers/MatchClientController/PlayerController/Input.lua	/^--@desc Waits for a specified mouse button condition to be met.$/;"	t
+field	src/StarterPlayer/StarterPlayerScripts/ClientServices/Gameplay/MatchControllers/MatchClientController/PlayerController/Input.lua	/^--@field Button Enum.UserInputType (Optional) The mouse button to wait for. Default is MouseButt/;"	t
+field	src/StarterPlayer/StarterPlayerScripts/ClientServices/Gameplay/MatchControllers/MatchClientController/PlayerController/Input.lua	/^--@field Button string The name of the key\/button to wait for.$/;"	t
+field	src/StarterPlayer/StarterPlayerScripts/ClientServices/Gameplay/MatchControllers/MatchClientController/PlayerController/Input.lua	/^--@field Condition boolean or string (Optional) The desired mouse button condition. If "Click", /;"	t
+field	src/StarterPlayer/StarterPlayerScripts/ClientServices/Gameplay/MatchControllers/MatchClientController/PlayerController/Input.lua	/^--@field State boolean The desired key state (pressed or not pressed). Default is false.$/;"	t
+field	src/StarterPlayer/StarterPlayerScripts/ClientServices/Gameplay/MatchControllers/MatchClientController/PlayerController/Input.lua	/^--@field Tap boolean If true, waits for a key tap (press and release). Default is false.$/;"	t
+function	src/ReplicatedStorage/Shared/Utility/maid.lua	/^-- @function Destroy$/;"	t
+function	src/ReplicatedStorage/Shared/Zone/Maid.lua	/^-- @function Destroy$/;"	t
+function	src/StarterPlayer/StarterPlayerScripts/ClientServices/Gameplay/MatchControllers/MatchClientController/PlayerController/Input.lua	/^--@function GetMouseData$/;"	t
+function	src/StarterPlayer/StarterPlayerScripts/ClientServices/Gameplay/MatchControllers/MatchClientController/PlayerController/Input.lua	/^--@function WaitOnKey$/;"	t
+function	src/StarterPlayer/StarterPlayerScripts/ClientServices/Gameplay/MatchControllers/MatchClientController/PlayerController/Input.lua	/^--@function WaitOnMouse$/;"	t
+license	src/ReplicatedStorage/Shared/ULID.lua	/^-- @license [mit](https:\/\/opensource.org\/licenses\/MIT)$/;"	t
+modified	src/ReplicatedStorage/Shared/ULID.lua	/^-- @modified StevenDahFish$/;"	t
+name	src/ReplicatedStorage/Shared/ULID.lua	/^-- @name decode_time$/;"	t
+name	src/ReplicatedStorage/Shared/ULID.lua	/^-- @name encode_random$/;"	t
+name	src/ReplicatedStorage/Shared/ULID.lua	/^-- @name encode_time$/;"	t
+name	src/ReplicatedStorage/Shared/ULID.lua	/^-- @name ulid$/;"	t
+param	Packages/_Index/alexinite_logger@0.1.1/logger/lib.lua	/^		--- @param add? number -- If using `getfenv()`, how many levels to add$/;"	t
+param	Packages/_Index/alexinite_logger@0.1.1/logger/lib.lua	/^		--- @param msg string -- The message to be printed$/;"	t
+param	Packages/_Index/alexinite_logger@0.1.1/logger/lib.lua	/^		--- @param msg string -- The message to be printed, params using `{param}`$/;"	t
+param	Packages/_Index/alexinite_logger@0.1.1/logger/lib.lua	/^		--- @param msg string -- The message to be warned, params using `{param}`$/;"	t
+param	Packages/_Index/alexinite_logger@0.1.1/logger/lib.lua	/^		--- @param msg string -- The message to throw an error with$/;"	t
+param	Packages/_Index/alexinite_logger@0.1.1/logger/lib.lua	/^		--- @param msg string -- The message to throw an error with, params using `{param}`$/;"	t
+param	Packages/_Index/alexinite_logger@0.1.1/logger/lib.lua	/^		--- @param str string -- The string to be formatted, params using `{param}`$/;"	t
+param	Packages/_Index/alexinite_logger@0.1.1/logger/lib.lua	/^		--- @param t table<number, string> | boolean -- The variables to be used in formatting or if t/;"	t
+param	Packages/_Index/alexinite_logger@0.1.1/logger/lib.lua	/^	--- @param msg string -- The message to be printed, params using `{param}`$/;"	t
+param	Packages/_Index/alexinite_logger@0.1.1/logger/lib.lua	/^	--- @param msg string -- The message to be warned, params using `{param}`$/;"	t
+param	Packages/_Index/alexinite_logger@0.1.1/logger/lib.lua	/^	--- @param msg string -- The message to throw an error with, params using `{param}`$/;"	t
+param	Packages/_Index/alexinite_logger@0.1.1/logger/lib.lua	/^	--- @param t table<number, string> -- The variables to be used in formatting$/;"	t
+param	Packages/_Index/alexinite_logger@0.1.1/logger/lib.lua	/^        --- @param msg string -- The message to be used as a warning$/;"	t
+param	Packages/_Index/mattschrubb_zoneplus@3.2.0/zoneplus/Janitor.lua	/^-- @param Instance Instance The Instance the Janitor will wait for to be Destroyed$/;"	t
+param	src/ReplicatedStorage/Shared/Icon/Packages/Janitor.lua	/^-- @param Instance Instance The Instance the Janitor will wait for to be Destroyed$/;"	t
+param	src/ReplicatedStorage/Shared/ULID.lua	/^-- @param len (optional) the length of the random string to return (defaults to 16)$/;"	t
+param	src/ReplicatedStorage/Shared/ULID.lua	/^-- @param len (optional) the length of the time-based string to return (defaults to 10)$/;"	t
+param	src/ReplicatedStorage/Shared/ULID.lua	/^-- @param time (optional) time to generate the `ulid` from, in seconds since$/;"	t
+param	src/ReplicatedStorage/Shared/ULID.lua	/^-- @param time (optional) time to generate the string from, in seconds since$/;"	t
+param	src/ReplicatedStorage/Shared/ULID.lua	/^-- @param ulid - a `ulid` string$/;"	t
+param	src/ReplicatedStorage/Shared/Utility/maid.lua	/^-- @param task An item to clean$/;"	t
+param	src/ReplicatedStorage/Shared/Zone/Maid.lua	/^-- @param task An item to clean$/;"	t
+param	src/StarterPlayer/StarterPlayerScripts/ClientServices/Gameplay/MatchControllers/MatchClientController/PlayerController/Input.lua	/^--@param Args table A table containing function arguments.$/;"	t
+return	Packages/_Index/alexinite_logger@0.1.1/logger/lib.lua	/^		--- @return string$/;"	t
+return	src/ReplicatedStorage/Shared/ULID.lua	/^-- @return `ulid` string$/;"	t
+return	src/ReplicatedStorage/Shared/ULID.lua	/^-- @return in milliseconds since unix epoch$/;"	t
+return	src/ReplicatedStorage/Shared/ULID.lua	/^-- @return random part of `ulid` string$/;"	t
+return	src/ReplicatedStorage/Shared/ULID.lua	/^-- @return time-based part of `ulid` string$/;"	t
+return	src/ReplicatedStorage/Shared/Utility/maid.lua	/^-- @return Maid[key] value$/;"	t
+return	src/ReplicatedStorage/Shared/Zone/Maid.lua	/^-- @return Maid[key] value$/;"	t
+return	src/StarterPlayer/StarterPlayerScripts/ClientServices/Gameplay/MatchControllers/MatchClientController/PlayerController/Input.lua	/^--@return table A table containing mouse data with 'Hit' and 'Target' fields.$/;"	t
+return	src/StarterPlayer/StarterPlayerScripts/ClientServices/Gameplay/MatchControllers/MatchClientController/PlayerController/Input.lua	/^--@return table A table containing the mouse hit point under the 'Hit' field.$/;"	t
+returns	Packages/_Index/mattschrubb_zoneplus@3.2.0/zoneplus/Janitor.lua	/^-- @returns Disconnectable table to stop Janitor from being cleaned up upon Instance Destroy (au/;"	t
+returns	src/ReplicatedStorage/Shared/Icon/Packages/Janitor.lua	/^-- @returns Disconnectable table to stop Janitor from being cleaned up upon Instance Destroy (au/;"	t
+see	src/ReplicatedStorage/Shared/Utility/maid.lua	/^-- @see Signal$/;"	t
+see	src/ReplicatedStorage/Shared/Zone/Maid.lua	/^-- @see Signal$/;"	t
+treturn	src/ReplicatedStorage/Shared/Utility/maid.lua	/^-- @treturn Maid$/;"	t
+treturn	src/ReplicatedStorage/Shared/Utility/maid.lua	/^-- @treturn number taskId$/;"	t
+treturn	src/ReplicatedStorage/Shared/Zone/Maid.lua	/^-- @treturn Maid$/;"	t
+treturn	src/ReplicatedStorage/Shared/Zone/Maid.lua	/^-- @treturn number taskId$/;"	t
+usage	src/ReplicatedStorage/Shared/ULID.lua	/^-- @usage local ulid_mod = require(game.ReplicatedStorage.ULID)$/;"	t
+usage	src/ReplicatedStorage/Shared/Utility/maid.lua	/^-- @usage$/;"	t
+usage	src/ReplicatedStorage/Shared/Zone/Maid.lua	/^-- @usage$/;"	t
+vararg	Packages/_Index/alexinite_logger@0.1.1/logger/lib.lua	/^		--- @vararg any$/;"	t
+vararg	Packages/_Index/alexinite_logger@0.1.1/logger/lib.lua	/^	--- @vararg any$/;"	t
+vararg	Packages/_Index/alexinite_logger@0.1.1/logger/lib.lua	/^        --- @vararg any$/;"	t
